@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Department of Computer Applications | MCET</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f7fb;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #123c69, #1d6fa5);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* College Image */
+        .college-image {
+            width: 220px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 4px solid white;
+            margin-bottom: 20px;
+        }
+
+        header h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 17px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #0b2948;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        /* Main Container */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        /* Sections */
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #123c69;
+            margin-bottom: 18px;
+            border-bottom: 3px solid #1d6fa5;
+            padding-bottom: 8px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* Course Cards */
+        .courses {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .course {
+            flex: 1;
+            min-width: 280px;
+            background-color: #eaf2f8;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #1d6fa5;
+            transition: 0.3s;
+        }
+
+        .course:hover {
+            transform: translateY(-5px);
+            background-color: #dcecf7;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .course h3 {
+            color: #123c69;
+            margin-bottom: 12px;
+        }
+
+        /* Facilities */
+        .facilities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .facility {
+            background-color: #eef5fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .facility:hover {
+            background-color: #dcecf7;
+        }
+
+        /* Vision Mission */
+        .vm-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .vm-box {
+            flex: 1;
+            min-width: 280px;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #eaf2f8;
+        }
+
+        .vm-box h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        /* Contact */
+        .contact-box {
+            background-color: #eaf2f8;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #123c69;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header h2 {
+                font-size: 20px;
+            }
+
+            .college-image {
+                width: 180px;
+                height: 110px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            .container {
+                width: 92%;
+            }
+
+            .facilities {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <h1>Mohandas College of Engineering and Technology</h1>
+
+        <!-- College Image -->
+        <img src="college.jpg"
+             alt="Mohandas College of Engineering and Technology"
+             class="college-image">
+
+        <h2>Department of Computer Applications</h2>
+
+        <p>Empowering Students Through Technology and Innovation</p>
+
+    </header>
+
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#vision">Vision & Mission</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+
+    <div class="container">
+
+        <!-- About Department -->
+        <section class="section" id="about">
+
+            <h2>About the Department</h2>
+
+            <p>
+                The Department of Computer Applications at Mohandas College
+                of Engineering and Technology is committed to providing
+                quality education in the field of computer applications and
+                information technology.
+            </p>
+
+            <p>
+                The department focuses on developing students' technical
+                knowledge, programming skills, logical thinking,
+                problem-solving abilities and professional skills. Students
+                are provided with opportunities to gain both theoretical
+                knowledge and practical experience in modern computing
+                technologies.
+            </p>
+
+            <p>
+                The Department of Computer Applications offers undergraduate
+                and postgraduate programmes, namely Bachelor of Computer
+                Applications (BCA) and Master of Computer Applications (MCA).
+            </p>
+
+        </section>
+
+
+        <!-- Courses -->
+        <section class="section" id="courses">
+
+            <h2>Courses Offered</h2>
+
+            <div class="courses">
+
+                <div class="course">
+
+                    <h3>BCA</h3>
+
+                    <h4>Bachelor of Computer Applications</h4>
+
+                    <p>
+                        BCA is an undergraduate programme that provides
+                        students with a strong foundation in computer
+                        applications and information technology.
+                    </p>
+
+                    <p>
+                        Students learn programming, database management,
+                        web development, computer networks, software
+                        development and other important areas of computing.
+                    </p>
+
+                </div>
+
+
+                <div class="course">
+
+                    <h3>MCA</h3>
+
+                    <h4>Master of Computer Applications</h4>
+
+                    <p>
+                        MCA is a postgraduate programme designed to provide
+                        advanced knowledge and practical skills in computer
+                        applications and software development.
+                    </p>
+
+                    <p>
+                        The programme covers areas such as software
+                        engineering, database management, artificial
+                        intelligence, data analytics and modern information
+                        technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Facilities -->
+        <section class="section" id="facilities">
+
+            <h2>Department Facilities</h2>
+
+            <div class="facilities">
+
+                <div class="facility">
+                    💻 Well-equipped Computer Laboratories
+                </div>
+
+                <div class="facility">
+                    🌐 High-Speed Internet Connectivity
+                </div>
+
+                <div class="facility">
+                    🖥️ Modern Computer Systems and Software
+                </div>
+
+                <div class="facility">
+                    📚 Digital Learning Resources
+                </div>
+
+                <div class="facility">
+                    🎓 Smart Classrooms
+                </div>
+
+                <div class="facility">
+                    💡 Programming and Software Development Facilities
+                </div>
+
+                <div class="facility">
+                    🧑‍🏫 Technical Workshops and Seminars
+                </div>
+
+                <div class="facility">
+                    🚀 Industry-Oriented Training
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Vision and Mission -->
+        <section class="section" id="vision">
+
+            <h2>Vision & Mission</h2>
+
+            <div class="vm-container">
+
+                <div class="vm-box">
+
+                    <h3>Our Vision</h3>
+
+                    <p>
+                        To become a center of excellence in computer
+                        applications education by developing competent,
+                        innovative and responsible IT professionals.
+                    </p>
+
+                </div>
+
+
+                <div class="vm-box">
+
+                    <h3>Our Mission</h3>
+
+                    <p>
+                        To provide quality education, practical exposure
+                        and opportunities for innovation that enable students
+                        to meet the challenges of the rapidly changing
+                        technology industry.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Why Choose Us -->
+        <section class="section">
+
+            <h2>Why Choose Computer Applications?</h2>
+
+            <ul>
+                <li>Strong foundation in programming and computer technology</li>
+                <li>Practical laboratory experience</li>
+                <li>Exposure to modern technologies</li>
+                <li>Development of problem-solving skills</li>
+                <li>Opportunities for projects and technical activities</li>
+                <li>Preparation for careers in the IT industry</li>
+                <li>Scope for higher studies and research</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Contact -->
+        <section class="section" id="contact">
+
+            <h2>Contact Us</h2>
+
+            <div class="contact-box">
+
+                <p>
+                    <strong>College:</strong>
+                    Mohandas College of Engineering and Technology
+                </p>
+
+                <p>
+                    <strong>Department:</strong>
+                    Department of Computer Applications
+                </p>
+
+                <p>
+                    <strong>Programmes:</strong>
+                    BCA and MCA
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    computerapplications@mcet.ac.in
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    Kerala, India
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Mohandas College of Engineering and Technology
+        </p>
+
+        <p>
+            Department of Computer Applications
+        </p>
+
+    </footer>
+
+</body>
+</html>

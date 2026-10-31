@@ -1,0 +1,68 @@
+<!-- exam.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Exam Panel</title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <style>
+        body { user-select: none; } /* Basic prevention for text selection */
+    </style>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-between align-items-center mb-4">
+        <h2>End-Term Assessment</h2>
+        <div class="alert alert-danger font-weight-bold" id="timer">Time Remaining: --:--</div>
+    </div>
+
+    <div class="card p-4 shadow-sm">
+        <form id="examForm">
+            <div id="questionContainer">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Submit Examination</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // 1. Anti-Cheating Protocol: Block context menu & copying
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'u')) e.preventDefault();
+    });
+
+    // 2. Examination Timer Module
+    let timeLimitInSeconds = 600; // 10 Minutes
+    const timerElement = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+        let minutes = Math.floor(timeLimitInSeconds / 60);
+        let seconds = timeLimitInSeconds % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+        timerElement.textContent = `Time Remaining: ${minutes}:${seconds}`;
+        
+        if (timeLimitInSeconds <= 0) {
+            clearInterval(countdown);
+            alert("Time's up! Your exam is being submitted automatically.");
+            submitExam();
+        }
+        timeLimitInSeconds--;
+    }, 1000);
+
+    // 3. Simulated Fetching & Form Submission
+    function submitExam() {
+        document.getElementById('examForm').submit();
+    }
+    
+    document.getElementById('examForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearInterval(countdown);
+        // Process form data and POST to Java API endpoint
+        alert("Exam submitted successfully!");
+    });
+</script>
+</body>
+</html>

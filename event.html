@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Event Handling</h1>
+    
+    <!-- The HTML element that triggers the event -->
+    <button id="myButton">Click Me!</button>
+
+    <!-- The HTML element that changes dynamically -->
+    <p id="message">Waiting for interaction...</p>
+
+    <!-- JavaScript code inside the script tag -->
+    <script>
+        // 1. Select the HTML elements using their IDs
+        const button = document.getElementById("myButton");
+        const messagePara = document.getElementById("message");
+
+        // 2. Define the action (function) to perform when the event happens
+        function changeContent() {
+            messagePara.innerHTML = "🎉 The button was clicked successfully!";
+            messagePara.style.color = "#28a745"; // Changes text color to green
+        }
+
+        // 3. Attach the event listener to the button
+        button.addEventListener("click", changeContent);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String & Math Functions Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: pink;
+
+            color: green;
+        }
+        h1 {
+            text-align: center;
+            color: purple;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 20px;
+        }
+        .section:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            color: #2980b9;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #219653;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #2c3e50;
+        }
+        .result-val {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>JavaScript Predefined Objects Demonstration</h1>
+
+    <!-- STRING OBJECT SECTION -->
+    <div class="section">
+        <h2>1. Predefined String Functions</h2>
+        <div class="input-group">
+            <label for="stringInput">Enter a String:</label>
+            <input type="text" id="stringInput" value="Hello, JavaScript World!">
+            <button onclick="processString()">Run String Functions</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Function / Property</th>
+                    <th>Description</th>
+                    <th>Output Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>.length</code></td>
+                    <td>Returns the length of the string.</td>
+                    <td id="strLength" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>.toUpperCase()</code></td>
+                    <td>Converts the string to upper case.</td>
+                    <td id="strUpper" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>.toLowerCase()</code></td>
+                    <td>Converts the string to lower case.</td>
+                    <td id="strLower" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>.charAt(0)</code></td>
+                    <td>Returns the character at the specified index (0).</td>
+                    <td id="strCharAt" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>.indexOf('Java')</code></td>
+                    <td>Returns the index of the first occurrence of specified text.</td>
+                    <td id="strIndexOf" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>.slice(7, 17)</code></td>
+                    <td>Extracts a section of a string and returns it as a new string.</td>
+                    <td id="strSlice" class="result-val">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MATH OBJECT SECTION -->
+    <div class="section">
+        <h2>2. Predefined Math Functions</h2>
+        <div class="input-group">
+            <label for="mathInput">Enter a Decimal:</label>
+            <input type="number" id="mathInput" step="0.01" value="4.75">
+            <button onclick="processMath()">Run Math Functions</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                    <th>Output Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Math.round(x)</code></td>
+                    <td>Rounds a number to the nearest integer.</td>
+                    <td id="mathRound" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>Math.ceil(x)</code></td>
+                    <td>Rounds a number up to the next largest integer.</td>
+                    <td id="mathCeil" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>Math.floor(x)</code></td>
+                    <td>Rounds a number down to the next smallest integer.</td>
+                    <td id="mathFloor" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>Math.sqrt(x)</code></td>
+                    <td>Returns the square root of a number.</td>
+                    <td id="mathSqrt" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>Math.abs(x)</code></td>
+                    <td>Returns the absolute (positive) value of a number.</td>
+                    <td id="mathAbs" class="result-val">-</td>
+                </tr>
+                <tr>
+                    <td><code>Math.random()</code></td>
+                    <td>Generates a random pseudo-number between 0 (inclusive) and 1 (exclusive).</td>
+                    <td id="mathRandom" class="result-val">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+ 
+    function processString() {
+        const str = document.getElementById("stringInput").value;
+        
+        document.getElementById("strLength").innerText = str.length;
+        document.getElementById("strUpper").innerText = str.toUpperCase();
+        document.getElementById("strLower").innerText = str.toLowerCase();
+        document.getElementById("strCharAt").innerText = str.charAt(0);
+        document.getElementById("strIndexOf").innerText = str.indexOf('Java');
+        document.getElementById("strSlice").innerText = str.slice(7, 17);
+    }
+
+ 
+    function processMath() {
+        const num = parseFloat(document.getElementById("mathInput").value);
+        
+        if (isNaN(num)) {
+            alert("Please enter a valid number");
+            return;
+        }
+
+        document.getElementById("mathRound").innerText = Math.round(num);
+        document.getElementById("mathCeil").innerText = Math.ceil(num);
+        document.getElementById("mathFloor").innerText = Math.floor(num);
+        document.getElementById("mathSqrt").innerText = num >= 0 ? Math.sqrt(num).toFixed(4) : "Invalid (Negative Number)";
+        document.getElementById("mathAbs").innerText = Math.abs(num);
+        document.getElementById("mathRandom").innerText = Math.random().toFixed(4);
+    }
+
+
+    window.onload = function() {
+        processString();
+        processMath();
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Continuous Color Changer</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+  }
+    </style>
+</head>
+<body>
+
+    <script>
+        function setRandomColor() {
+            // Generate a random 6-digit hex code
+            const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            // Ensure it has exactly 6 digits by padding with zeros if necessary
+            document.body.style.backgroundColor = "#" + randomColor.padStart(6, '0');
+        }
+
+        // Change the color every 1000 milliseconds (1 second)
+        setInterval(setRandomColor, 1000);
+        
+        setRandomColor();
+    </script>
+<p style="font-size:100px;text-align:center;
+padding:200px";>
+     MAZHAVIL
+</p>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic JavaScript Calendar</title>
+  <style>
+    :root {
+      --primary-color: #6964ff;
+      --text-color: black;
+      --bg-color:  #334076;
+      --calendar-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .calendar-container {
+      background-color: var(--calendar-bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      width: 350px;
+      padding: 24px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .calendar-header h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--text-color);
+    }
+
+    .nav-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .nav-btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      font-weight: 600;
+      color: #666;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      gap: 5px;
+    }
+
+    .day {
+      padding: 10px 0;
+      font-size: 0.9rem;
+      color: var(--text-color);
+      border-radius: 50%;
+      cursor: pointer;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .day:hover:not(.empty) {
+      background-color: #eef0ff;
+    }
+
+    .day.empty {
+      cursor: default;
+    }
+
+    .day.today {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-container">
+    <!-- Header: Month/Year & Navigation Buttons -->
+    <div class="calendar-header">
+      <button class="nav-btn" id="prevMonth">&lt; Prev</button>
+      <h2 id="monthYearDisplay"></h2>
+      <button class="nav-btn" id="nextMonth">Next &gt;</button>
+    </div>
+
+    <!-- Weekday Labels -->
+    <div class="weekdays">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+
+    <!-- Calendar Days Grid -->
+    <div class="days-grid" id="daysContainer"></div>
+  </div>
+
+  <script>
+    // 1. Initialize data tracking structures
+    const date = new Date();
+    let currentYear = date.getFullYear();
+    let currentMonth = date.getMonth(); // 0-indexed (Jan = 0, Dec = 11)
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    // 2. DOM element references
+    const monthYearDisplay = document.getElementById("monthYearDisplay");
+    const daysContainer = document.getElementById("daysContainer");
+    const prevBtn = document.getElementById("prevMonth");
+    const nextBtn = document.getElementById("nextMonth");
+
+    // 3. Core function to render calendar layout dynamically
+    function renderCalendar() {
+      // Get the first day of the targeted month (0 = Sunday, 6 = Saturday)
+      const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
+      
+      // Get total days in target month by selecting the 0th day of the NEXT month
+      const totalDays = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+      // Update UI title text
+      monthYearDisplay.innerText = `${monthNames[currentMonth]} ${currentYear}`;
+      
+      // Clear prior date items
+      daysContainer.innerHTML = "";
+
+      // Add empty space buffers for shifting rows to match correct weekday column alignment
+      for (let i = 0; i < firstDayIndex; i++) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.classList.add("day", "empty");
+        daysContainer.appendChild(emptyDiv);
+      }
+
+      // Populate valid physical date days
+      const today = new Date();
+      for (let day = 1; day <= totalDays; day++) {
+        const dayDiv = document.createElement("div");
+        dayDiv.classList.add("day");
+        dayDiv.innerText = day;
+
+        // Visual distinction indicator tracking modern real time highlights
+        if (
+          day === today.getDate() &&
+          currentMonth === today.getMonth() &&
+          currentYear === today.getFullYear()
+        ) {
+          dayDiv.classList.add("today");
+        }
+
+        daysContainer.appendChild(dayDiv);
+      }
+    }
+
+    // 4. Attach event listeners for state-changing operations
+    prevBtn.addEventListener("click", () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar();
+    });
+
+    // Initial load trigger on execution state start
+    renderCalendar();
+  </script>
+
+</body>
+</html>

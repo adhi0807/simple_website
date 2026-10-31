@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  <meta charset="UTF-8">
+    <title>Rainbow Text Effect</title>
+    <style>
+        #rainbow-text {
+            font-size: 2rem;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <em><h1 id="rainbow-text">   <p style="font-size:100px;text-align:center;
+padding:200px";>
+     MAZHAVIL</em>
+</p>
+</h1>
+
+    <script>
+        const rainbowText = document.getElementById("rainbow-text");
+        let hue = 0;
+
+        function updateRainbow() {
+            // HSL takes values: hsl(hue 0-360, saturation %, lightness %)
+            rainbowText.style.color = `hsl(${hue}, 80%, 50%)`;
+            
+            // Increment the hue value to cycle through the color spectrum
+            hue = (hue + 1) % 360; 
+        }
+
+        // Run every 20 milliseconds for a fluid, continuous animation flow
+        setInterval(updateRainbow, 20);
+    </script>
+ <meta charset="UTF-8">
+    <title>Continuous Color Changer</title>
+    <style>
+        body {
+            /* Optional: Add a transition for a smooth fade effect */
+            transition: background-color 1s ease; 
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        
+        const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff"];
+        let colorIndex = 0;
+
+        function changeBackgroundColor() {
+          
+            document.body.style.backgroundColor = colors[colorIndex];
+            
+            
+            colorIndex = (colorIndex + 1) % colors.length;
+        }
+
+       
+        setInterval(changeBackgroundColor, 2000);
+
+       
+        changeBackgroundColor();
+    </script>
+<script>
+     
+        const colors = ["tomato", "crimson", "gold", "mediumseagreen", "dodgerblue", "blueviolet"];
+        let currentIndex = 0;
+
+        const textElement = document.getElementById("changing-text");
+
+        function changeColor() {
+           
+            textElement.style.color = colors[currentIndex];
+            
+            
+            currentIndex = (currentIndex + 1) % colors.length;
+        }
+	setInterval(changeColor, 500);
+ 
+</script>
+</p>
+
+</body>
+</html>
